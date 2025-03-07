@@ -1,0 +1,76 @@
+/* 전체 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* 연한 하늘색 배경 */
+}
+
+/* Header 스타일 */
+.header {
+    background-color: #87ceeb; /* 하늘색 배경 */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav button {
+    background-color: #fff;
+    border: 1px solid #87ceeb;
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav button:hover {
+    background-color: #87ceeb;
+    color: white;
+}
+
+/* Main Page 스타일 */
+.main-page {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-page h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.main-page p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Footer 스타일 */
+.footer {
+    background-color: #003366; /* 진한 남색 배경 */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

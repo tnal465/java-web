@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<context:component-scan base-package="cart"/>
+
+ <!-- DB 연결 정보 가져오기 -->
+    <beans:import resource="spring-database.xml"/>
+
+    <!-- MyBatis SqlSessionFactory 설정 -->
+    <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <beans:property name="dataSource" ref="dataSource"/>
+        <beans:property name="configLocation" value="classpath:config/mybatis-config.xml"/>
+    </beans:bean>
+
+    <!-- Mapper 자동 스캔 등록 (CartMapper 빈 등록 역할) -->
+    <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <beans:property name="basePackage" value="cart.repository"/>
+        <beans:property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </beans:bean>
+
+</beans:beans>
