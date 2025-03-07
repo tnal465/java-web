@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.6.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+<security:http auto-config="true" use-expressions="true">
+
+<!-- <security:intercept-url pattern="/*"  access="denyAll"/> -->
+<!-- <security:intercept-url pattern="/root"   access="hasRole('ROLE_ROOT')"/>
+<security:intercept-url pattern="/admin"  access="hasRole('ROLE_ADMIN')"/> -->
+<security:intercept-url pattern="/index"   access="hasRole('ROLE_USER')"/>
+<!-- <security:intercept-url pattern="/guest"  access="hasRole('ROLE_GUEST')"/> -->
+<security:intercept-url pattern="/login"  access="permitAll"/>
+<security:intercept-url pattern="/logout"  access="permitAll"/>
+<!-- <security:intercept-url pattern="/member/**"  access="permitAll"/>
+<security:intercept-url pattern="/passtest"  access="permitAll"/> -->
+
+<!-- loginsuccess : 클래스호출 -->
+<!-- login-page : 로그인이 되지 않았을 때 이동하는 url -->
+<security:form-login 
+login-page="/login" 
+authentication-success-handler-ref="loginsuccess" 
+username-parameter="username"
+password-parameter="password"
+/>
+
+<!-- 로그아웃처리 -->
+<security:logout
+logout-url="/logout"
+logout-success-url="/login"
+invalidate-session="true"
+/>
+
+<!-- 클래스를 이용하여(핸들러이용) 접근처리 -->
+<security:access-denied-handler ref="accessdeny"/>
+</security:http>
+
+<!-- 위의 시큐리티를 관리하는 계정관리(db) -->
+<!-- loginService는 객체이고 
+spring에서 지원하는 UserDetailsService객체 상속받아 구현 -->
+<!-- login-form에서 로그인을 하면 자동으로 manager로 이동하여 처리된다.
+여기서는 user-service-ref가 객체이므로 로그인을 하기 위해 해당 객체로 이동한다.
+ -->
+<!-- 암호화 bean객체, manager에 입력 -->
+<beans:bean id="bpe" 
+class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> 
+
+<security:authentication-manager>
+<security:authentication-provider 
+user-service-ref="loginService">
+<security:password-encoder ref="bpe"/>
+</security:authentication-provider>
+</security:authentication-manager>
+<!--accessdeny이름의 거절 객체를 등록  -->
+<!-- 
+
+<beans:bean id="accessdeny" 
+class="login.controller.CustomAccessDeniedHandler"/>-->
+<!-- 로그인 성공했을 때 loginsucess 객체 등록-->
+<!-- 
+<beans:bean id="loginsuccess" 
+class="login.controller.CustomLoginSuccessHandler"/> 
+-->
+</beans:beans>

@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<th:block th:fragment="header">
+<header>
+	<nav class="event-bar">
+	🎉 회원 가입 시 50% 할인 쿠폰 제공 🎉
+	</nav>
+
+<nav class="header">
+
+<ul>
+	<li><p><a href="/index" class="ShoeSphere">ShoeSphere</a></p></li>
+	<!--
+	<li><a href="/board">BOARD</a></li>
+	<li><a href="/member">MEMBER</a></li>
+	  -->
+		<li></li><li></li>
+		<li></li><li></li>
+		<li></li><li></li>
+		<li></li><li></li>
+		<li></li><li></li>
+		<li></li><li></li>
+		<li></li><li></li>
+		<li class="bar-right"><a href="/mypage"><i class="fas fa-user"></i>MYPAGE</a></li>
+	    <li class="bar-right"><a href="/cart"><i class="fas fa-shopping-cart"></i>CART</a></li>
+		<li class="bar-right">
+            <span th:if="${#authentication != null}" th:text="${#authentication.principal.username}"></span>
+            <a th:if="${#authentication == null}" href="/login">LOGIN</a>
+        </li>
+		<li class="bar-right">
+			<a href="/logout"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>	
+
+</ul>
+</nav>
+
+</header>
+</th:block>
+</html>
