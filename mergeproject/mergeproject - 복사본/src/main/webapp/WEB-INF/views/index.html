@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="~{layout/layout}">
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeSphere</title>
+<style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .top-right {
+        	color: red;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #6c8ebd; /* 버튼 배경색 */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 300px; /* 상품 이미지 최대 너비 */
+        }
+       
+       .top-right {
+            background-color: #333; /* 배경색 */
+            padding: 10px;
+        }
+        .top-right a {
+            color: #fff; /* 글씨 색상 */
+            text-decoration: none;
+            margin: 0 10px; /* 링크 간격 */
+        }
+        .top-right a:hover {
+            color: #ffcc00; /* 마우스 오버 시 색상 변경 */
+        }
+    </style>
+
+</head>
+
+<body>
+
+<th:block layout:fragment="content">
+	<div class="container">
+      
+      	<div class="second-container">
+	        <h1 class="title">Step into style! <span class="subtitle">신발로 세상을 걷다</span></h1>
+	        <p>자신에게 맞는 완벽한 신발을 찾아, 빛나는 모습을 연출해보세요!</p>
+	        <p>당신의 스타일을 완성할 신발이 여기 있습니다.</p>
+	        <a href="shop" class="button">지금 쇼핑하기</a>
+
+        </div>
+        <div class="third-container">
+        	<img class="product-image" src="../../static/login/img/homeimage.jpeg" alt="상품 이미지">  <!-- 실제 상품 이미지 파일 경로 추가 -->
+    	</div>
+    </div>
+        
+        
+</th:block>
+</body>
+
+</html>

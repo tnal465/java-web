@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* cart.css */
+
+/* content 영역의 최상위 컨테이너 내에서만 스타일 적용 */
+.cart-content .cart-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* 왼쪽: 상품 목록 영역 */
+.cart-content .cart-items {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 개별 상품 박스 */
+.cart-content .cart-item {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 15px;
+}
+
+/* 상품 박스 상단: 체크박스, 상품명, 휴지통 버튼 */
+.cart-content .cart-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cart-content .cart-item-checkbox {
+  margin-right: 10px;
+}
+.cart-content .cart-item-title {
+  flex: 1;
+  font-weight: bold;
+}
+.cart-content .cart-item-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.cart-content .cart-item-delete img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 상품 박스 본문: 이미지, 옵션, 수량, 가격 */
+.cart-content .cart-item-body {
+  display: flex;
+  gap: 20px;
+}
+.cart-content .cart-item-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  background-color: #eee;
+  display: block;
+}
+
+/* 옵션 및 수량 정보 */
+.cart-content .cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart-content .cart-item-option label {
+  margin-right: 5px;
+}
+.cart-content .cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cart-content .quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cart-content .quantity-control button {
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.cart-content .quantity-control input[type="number"] {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+/* 상품 가격 */
+.cart-content .cart-item-price {
+  margin-left: auto;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* 오른쪽: 결제 요약 영역 */
+.cart-content .cart-summary {
+  flex: 1;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+}
+.cart-content .summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.cart-content .summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.cart-content .summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.cart-content .summary-checkout {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.cart-content .summary-checkout:hover {
+  background-color: #333;
+}
