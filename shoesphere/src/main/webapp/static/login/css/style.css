@@ -1,9 +1,0 @@
-@charset "UTF-8";
-.title{
-	background-color: orange;
-}
-#username, #password{ background-color: yellow}
-
-.loginbox{
-	border:1px solid black;
-}
