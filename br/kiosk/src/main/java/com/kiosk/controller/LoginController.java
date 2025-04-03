@@ -13,16 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-@CrossOrigin(origins = "http://192.168.0.17:5555")
+@CrossOrigin(origins = "http://127.0.0.1:5555")
 @RestController
 @RequestMapping("/api")
 public class LoginController {
     
 	@PostMapping("/login")
-	//public ResponsEntity<Map<String, Object>> postLogin(@ModelAttribute UserDTO userdto){} //db가져올때 
 	public ResponseEntity<?> login( @RequestBody Map<String, String> loginData, HttpServletRequest request) {
-		 System.out.println("로그인 요청 들어옴!"); // 디버깅용 출력
-        System.out.println("입력값: " + loginData);
+		System.out.println("로그인 요청 들어옴!"); 		//디버깅용 추후에 삭제
+        System.out.println("입력값: " + loginData);	//디버깅용 추후에 삭제
 	        
         String username = loginData.get("username");
         String password = loginData.get("password");
